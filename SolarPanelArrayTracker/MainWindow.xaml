@@ -1,0 +1,70 @@
+﻿<Window x:Class="SolarPanelArrayTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Solar Panel Tracker" Height="685" Width="714" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,2,3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".7*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Tracking">
+                <MenuItem Header="Start" Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" FontSize="25" Name="Title"/>
+            <Image Source="Images/Buggy.jpg" Height="100" Margin="5"></Image>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="Auto" />    
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="15" FontWeight="Bold" Text="GPS Readings" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="5"/>
+            <ListBox Name="GPSReadings" Grid.Row="1" Grid.Column="0" Margin="5" Background="Black"  Foreground="Green"/>
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Slider  Name="GPSSlider" Grid.Column="0" Width="80" Margin="5" TickPlacement="BottomRight" TickFrequency="1000" Minimum="1000" Maximum="10000" PreviewMouseUp="GPSSlider_PreviewMouseUp"/>
+            </Grid>
+            <TextBlock FontSize="15" FontWeight="Bold" Text="Solar Panel Scans" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="5"/>
+            <ListBox Name="ScansReadings" Grid.Row="1" Grid.Column="1" Margin="5" Background="Black" Foreground="Red"/>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Slider Name="ScansSlider" Grid.Column="0" Width="80" Margin="5" TickPlacement="BottomRight" TickFrequency="5000" Minimum="5000" Maximum="20000" PreviewMouseUp="ScansSlider_PreviewMouseUp"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Text="Data Captured" Margin="5"/>
+            <ListBox Grid.Row="1" Name="DataEntryList" Margin="5" Background="Black" Foreground="White"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Text="Data Saved" Margin="5"/>
+            <ListBox Grid.Row="1" Name="DataSavedList" Margin="5" Background="Black" Foreground="White"/>
+        </Grid>
+   </Grid>
+</Window>
